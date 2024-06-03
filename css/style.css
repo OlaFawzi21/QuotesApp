@@ -11,18 +11,20 @@
 }
 
 .parent {
-    background-image: url(../imgs/backgroundImg.jpg);
+    background-image: url(../imgs/download.jpg);
     background-size: cover;
     min-height: 100vh;
 
     .child-box {
-        width: 80%;
+        width: 90%;
         min-height: 85vh;
-        backdrop-filter: blur(20px);
-        border-radius: 20px;
-        box-shadow: rgb(139 195 74 / 52%) 0px 0px 10px 0px;
-        color: var(--secondary-color);
+        backdrop-filter: blur(25px);
+        border-radius: 30%;
+        box-shadow: rgb(156 161 156 / 52%) 0px 0px 10px 0px;
+        color: var(--main-color);
         gap: 4rem;
+        justify-content: center;
+        position: relative;
 
         .title h1 {
             font-size: 3.5rem;
@@ -32,7 +34,7 @@
             background-color: var(--main-color);
             color: var(--secondary-color);
             border: none;
-            box-shadow: rgb(139 195 74 / 96%) 0px 0px 10px 0px;
+            box-shadow: rgb(156 161 156 / 60%) 0px 0px 10px 0px;
             border-radius: 15px;
             transition: background-color .5s;
         }
@@ -47,6 +49,9 @@
             color: var(--secondary-color);
         }
 
+        .quotes{
+            min-height: 145px;
+        }
         .quotes #quote {
             font-size: 1.2rem;
             letter-spacing: .15rem;
@@ -55,6 +60,18 @@
         .quotes.animate-quote {
             animation: scale-out .5s linear 1;
         }
+    }
+
+    .child-box::after {
+        content: '';
+        position: absolute;
+        padding: 2px;
+        inset: 0;
+        background: radial-gradient(circle, #4CAF50 0%, rgb(165 178 168) 100%);
+        -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+        -webkit-mask-composite: xor;
+        border-radius: 30%;
+        z-index: -1;
     }
 
 }
@@ -76,25 +93,31 @@
 @media (max-width:800px) {
     .parent {
         .child-box {
-            width: 90%;
+            width: 100%;
+            border-radius: 20px;
 
             .title h1 {
                 font-size: 2rem;
             }
 
+            .quotes{
+                min-height: 235px;
+            }
             .quotes #quote {
                 font-size: 1.3rem;
             }
+        }
+
+        .child-box::after {
+            border-radius: 20px;
         }
     }
 }
 
 
-@media (max-width:360px) {
+@media (max-width:350px) {
     .parent {
         .child-box {
-            width: 95%;
-
             .title {
                 h1 {
                     font-size: 1.2rem;
